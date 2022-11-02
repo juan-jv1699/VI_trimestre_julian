@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Api pokemon</title>
+    <link rel="stylesheet" href="../bootstrap-5.2.2-dist/css/bootstrap.css">
+  </head>
+  <body>
+      <div class="container align-items-center justify-content-center">
+          <!-- header -->
+        <div class="row align-items-center">
+            <!-- titulo -->
+            <div class="col">
+                <h1>API, Pokemons</h1>
+            </div>
+            <div class="col">
+                <p>Consumo de api externa con la libreria de Fetch para traer informacion de distintos pokemones utilizando la funcion ASYNC</p>
+            </div>
+        </div>
+        <!-- body -->
+        <div class="row mt-2">
+            <!-- contenido -->
+            <div class="col-3 d-flex mw-100">
+                <div class="d-flex flex-column">
+                    <label for="limit">Cuantos pokemons deseas ver</label>
+                    <input type="number" name="limit" id="limit">
+                    <label for="offset">Desde que pokemon deseas ver</label>
+                    <input type="text" name="offset" id="offset">
+                    <button class="btn btn-primary my-2">APLICAR</button>
+                </div>
+            </div>
+            <div class="col-8 offset-1 cardBody d-flex flex-wrap justify-content-evenly">
+                
+            </div>
+        </div>
+    </div>
+    <script src="../bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script>
+        const table= document.querySelector('.cardBody')
+        const limit = document.getElementById('limit')
+        const offset = document.getElementById('offset')
+        const btn = document.querySelector('.btn')
+
+        async function apiFetch(limit,offset){
+            const url ="https://pokeapi.co/api/v2/"
+            const resp = await fetch(`${url}pokemon?limit=${limit}&offset=${offset}`)
+            const pokemons = await resp.json()
+            if(resp.status != 200){
+                throw Error('Error en el FETCH')
+            }
+            renderCards(pokemons.results);
+        }
+
+        async function getPokemon(url){
+            const resp = await fetch(url)
+            const pokemon = await resp.json()
+            if(resp.status != 200){
+                throw Error('Error en el FETCH')
+            }
+            return pokemon
+        }
+
+        async function renderCards(pokemons){
+            for(let pok of pokemons){
+                pokemon = await getPokemon(pok.url)
+                console.log(pokemon.sprites.other);
+                table.innerHTML += `<div class="card mb-2" style="width: 12rem;">
+                    <img src="" class="card-img-top mw-100 mh-50" alt="imagen de API">
+                    <div class="card-body">
+                      <h5 class="card-title">imagen:</h5>
+                      <p class="card-text">Author:</p>
+                      <a href="" class="btn btn-primary" target="on-blank">Ir a la imagen</a>
+                    </div>
+                </div>`
+            }
+        }
+
+        btn.addEventListener('click',async function(){
+            let limite = limit.value
+            let offste = offset.value
+            try{
+                await apiFetch(limite,offset);
+            }
+            catch(e){
+                console.log(e);
+            }
+        })
+    </script>
+  </body>
+</html>

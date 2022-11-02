@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Country Apps</title>
+    <link rel="stylesheet" href="../bootstrap-5.2.2-dist/css/bootstrap.css">
+  </head>
+  <body>
+      <div class="container align-items-center justify-content-center">
+          <!-- header -->
+        <div class="row align-items-center">
+            <!-- titulo -->
+            <div class="col">
+                <h1>API, Countries</h1>
+            </div>
+            <div class="col">
+                <p>Consumo de api externa con la libreria de Fetch para traer informacion de distintos paises</p>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center text-center">
+            <!-- selector de pais -->
+            <div class="col">
+                <select name="lista_paises" id="lista_paises">
+                    <option selected>selecione un pais</option>
+                </select>
+            </div>
+        </div>
+        <!-- body -->
+        <div class="row mt-2">
+            <!-- tabla de paises -->
+            <div class="col">
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Flag</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Capital</th>
+                        <th scope="col">Population</th>
+                        <th scope="col">Lenguajes</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="contenido">
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    <script src="../bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

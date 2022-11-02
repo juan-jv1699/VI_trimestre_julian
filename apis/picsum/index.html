@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test API(picsum)</title>
+    <link rel="stylesheet" href="../bootstrap-5.2.2-dist/css/bootstrap.css">
+  </head>
+  <body>
+      <div class="container align-items-center justify-content-center">
+          <!-- header -->
+        <div class="row align-items-center">
+            <!-- titulo -->
+            <div class="col">
+                <h1>API, Picsum</h1>
+            </div>
+            <div class="col">
+                <p>Consumo de api externa con la libreria de Fetch para traer fotos y su informacion utilizando la funcion ASYNC</p>
+            </div>
+        </div>
+        <!-- body -->
+        <div class="row mt-2">
+            <!--  -->
+            <div class="col d-flex justify-content-between align-items-center">
+                <label for="limit">Digite cuantas imagenes desea ver: </label>
+                <input class="limit" type="number" name="limit" value="0">
+                <label for="offset">Digite desde que imagen desea ver: </label>
+                <input class ="offset" type="number" name="offset" value="0">
+                <label for="greyscale">Greyscale: </label>
+                <input class="greyS" type="checkbox" name="greyscale" >
+                <label for="blur">Blur: </label>
+                <input class="blur" type="checkbox" name="blur" >
+            </div>
+            <button class="btn btn-primary w-auto">ACEPTAR</button>
+        </div>
+        <div class="row mt-5">
+            <div class="col tableCards d-flex justify-content-evenly flex-wrap">
+            </div>
+            <a href="http://" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+    </div>
+    <script src="../bootstrap-5.2.2-dist/js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
