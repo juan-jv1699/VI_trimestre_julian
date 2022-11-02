@@ -1,0 +1,16 @@
+{
+  "name": "apitest",
+  "version": "1.0.0",
+  "description": "API de prueba con node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.3",
+    "sequelize-cli": "^6.5.2"
+  }
+}
